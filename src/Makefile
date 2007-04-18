@@ -1,6 +1,7 @@
 SOURCES=irc.mli irc.ml
 RESULT=irc
 
+LIBINSTALL_FILES = $(wildcard META *.mli *.cmi *.cma *.cmxa *.a *.so)
 OCAMLDOCFLAGS = -stars
 
 all: byte opt

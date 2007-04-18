@@ -19,7 +19,7 @@ doc:
 	make -C src htdoc
 	mkdir -p doc
 	rm -rf doc/html
-	mv src/doc/mad/html doc
+	mv src/doc/irc/html doc
 	rm -rf src/doc
 
 clean:
