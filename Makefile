@@ -1,17 +1,18 @@
 # Copyright 2003-2007 The Savonet team
 
 PROGNAME = ocaml-irc
+VERSION = 0.1.0
 DISTFILES = CHANGES COPYING Makefile README \
             src/OCamlMakefile src/Makefile \
-            src/META src/*.ml src/*.mli \
+            src/META.in src/*.ml src/*.mli \
             doc/html
 
 .PHONY: all install uninstall update opt byte doc clean distclean dist
 
-all:
+all: src/META
 	make -C src
 
-opt byte update install uninstall:
+opt byte update install uninstall: src/META
 	make -C src $@
 
 doc:
@@ -31,9 +32,11 @@ distclean: clean
 	-make -C examples distclean
 
 dist: doc
-	VERSION="$(shell grep 'AC_INIT' configure.ac)"; \
-		VERSION=`echo "$$VERSION" | sed -e 's/AC_INIT([^,]*, \([^,]*\), .*)/\1/'`; \
+	VERSION="$(VERSION)"; \
 		mkdir $(PROGNAME)-$$VERSION; \
 		cp -r --parents $(DISTFILES) $(PROGNAME)-$$VERSION; \
 		tar zcvf $(PROGNAME)-$$VERSION.tar.gz $(PROGNAME)-$$VERSION; \
 		rm -rf $(PROGNAME)-$$VERSION
+
+src/META: src/META.in
+	sed -e 's/@VERSION@/$(VERSION)/' $< > $@
