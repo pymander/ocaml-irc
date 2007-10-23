@@ -10,26 +10,26 @@ DISTFILES = CHANGES COPYING Makefile README \
 .PHONY: all install uninstall update opt byte doc clean distclean dist
 
 all: src/META
-	make -C src
+	$(MAKE) -C src
 
 opt byte update install uninstall: src/META
-	make -C src $@
+	$(MAKE) -C src $@
 
 doc:
-	make -C src htdoc
+	$(MAKE) -C src htdoc
 	mkdir -p doc
 	rm -rf doc/html
 	mv src/doc/irc/html doc
 	rm -rf src/doc
 
 clean:
-	-make -C src clean
-#	-make -C examples clean
+	-$(MAKE) -C src clean
+#	-$(MAKE) -C examples clean
 
 distclean: clean
 	rm -rf autom4te.cache config.log config.status src/META src/Makefile
 	rm -rf doc
-	-make -C examples distclean
+	-$(MAKE) -C examples distclean
 
 dist: doc
 	VERSION="$(VERSION)"; \
