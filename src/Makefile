@@ -3,6 +3,7 @@ RESULT=irc
 
 LIBINSTALL_FILES = $(wildcard META *.mli *.cmi *.cma *.cmxa *.a *.so)
 OCAMLDOCFLAGS = -stars
+NO_CUSTOM = yes
 
 all: byte opt
 
