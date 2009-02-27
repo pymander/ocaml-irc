@@ -205,6 +205,10 @@ let string_of_sender sender =
   with
     | Invalid_argument _ -> ""
 
+let nick_user_host_of_sender = function
+  | Prefix_user u -> Some (u.ipn_nick, u.ipn_user, u.ipn_host)
+  | _ -> None
+
 let command_of_string s =
   try
     Array.iter (function (t, c) -> if s = t then raise (Cmd_found c)) command_table;

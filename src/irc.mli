@@ -77,6 +77,9 @@ type sender
 (** Get a string representation of a sender (it can be a servername, a nickname or an empty string). *)
 val string_of_sender : sender -> string
 
+(** Get the nick, host and user of a sender, if it is a client; otherwise, returns None *)
+val nick_user_host_of_sender : sender -> (string * string * string) option
+
 (** {2 Handling stupid mIrc color codes}
   
   The official color code list is
