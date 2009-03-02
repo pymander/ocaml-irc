@@ -179,6 +179,9 @@ let command_table = [|
   "PONG",     Cmd_pong;
   "AWAY",     Cmd_away;
   "KICK",     Cmd_kick;
+  "WHO",      Cmd_who;
+  "WHOIS",    Cmd_whois;
+  "WHOWAS",   Cmd_whowas;
   "315",      Cmd_reply Rpl_end_of_who;
   "319",      Cmd_reply Rpl_whois_channels;
   "352",      Cmd_reply Rpl_who;
