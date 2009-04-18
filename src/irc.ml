@@ -759,9 +759,12 @@ object (self)
   method event_loop =
     while true
       do
-      let msg = input_line ic ^ "\n" in
+      let msg = self#read_line in
         self#on_raw_event msg
     done
+    
+  method private read_line =
+    input_line ic ^ "\n"
 end
 
 module type Client_params =
