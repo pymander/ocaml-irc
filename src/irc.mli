@@ -126,6 +126,8 @@ val beep_text : unit -> string
 
 class client : string -> string -> string -> string -> string ->
 object
+  val mutable ic : in_channel (* useful for replacing the event_loop *)
+
   method set_port : int -> unit
 
   method connect : unit
