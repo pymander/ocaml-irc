@@ -819,8 +819,14 @@ struct
     send_command Cmd_nick [|nick|];
     cur_nick := nick
 
+  let get_nick () =
+    !cur_nick
+
   let join chan =
     send_command Cmd_join [|chan|]
+
+  let join_pw chan pass =
+    send_command Cmd_join [|chan; pass|]
 
   let part chan =
     send_command Cmd_part [|chan|]

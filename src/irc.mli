@@ -256,6 +256,14 @@ sig
   (** Connect to the server. *)
   val connect : unit -> unit
 
+  (** Current information *)
+  val cur_nick : string ref
+  val cur_user : string ref
+  val cur_host : string ref
+
+  (** Current nick. *)
+  val get_nick : unit -> string
+
   (** Disconnect from the server. *)
   val disconnect : unit -> unit
 
@@ -268,6 +276,9 @@ sig
 
   (** Join a channel. *)
   val join : string -> unit
+
+  (** Join a channel with a password. *)
+  val join_pw : string -> string -> unit
 
   (** Part from a channel. *)
   val part : string -> unit
