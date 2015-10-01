@@ -366,7 +366,7 @@ let rec parse s =
                                 loop1 l n
                                   and loop2 l n =
                                     begin
-                                      m.imsg_params <- Array.create n "";
+                                      m.imsg_params <- Array.make n "";
                                       let rec loop i l =
                                         match l with
                                           | x::r ->
