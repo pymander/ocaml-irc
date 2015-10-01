@@ -508,6 +508,9 @@ object (self)
     self#send_command Cmd_nick [|nick|];
     cur_nick <- nick
 
+  method get_nick () =
+    cur_nick
+
   method join chan =
     self#send_command Cmd_join [|chan|]
 
@@ -818,6 +821,9 @@ struct
   let change_nick nick =
     send_command Cmd_nick [|nick|];
     cur_nick := nick
+
+  let get_nick () =
+    !cur_nick
 
   let join chan =
     send_command Cmd_join [|chan|]

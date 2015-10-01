@@ -136,6 +136,8 @@ object
 
   method change_nick : string -> unit
 
+  method get_nick : unit -> string
+
   method join : string -> unit
 
   method part : string -> unit
@@ -280,6 +282,9 @@ sig
 
   (** Change your nickname. *)
   val change_nick : string -> unit
+
+  (** Get current nickname *)
+  val get_nick : unit -> string
 
   (** [kick user chan reason] kicks the user [user] from the channel [chan] giving him [reason] as explanation. *)
   val kick : string -> string -> string -> unit
