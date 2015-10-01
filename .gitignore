@@ -1,0 +1,11 @@
+src/._bcdi
+src/._d
+src/._ncdi
+*.a
+*.cma
+*.cmi
+*.cmo
+*.cmx
+*.cmxa
+*.o
+*~
