@@ -1,0 +1,6 @@
+name="Irc"
+version="0.1.0"
+description="Communicate with IRC servers."
+requires="unix"
+archive(byte) = "irc.cma"
+archive(native) = "irc.cmxa"
